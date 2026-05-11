@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: Constantia, "Lucida Bright", Lucidabright, "Lucidatypewriter", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", Georgia, serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  
+  --color-brand-green: #004236;
+  --color-brand-cream: #f2d9c2;
+  --color-luxury-charcoal: #1a1a1a;
+  --color-luxury-gold: #c5a059;
+}
+
+@layer base {
+  h1, h2, h3, .serif {
+    @apply font-serif;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.luxury-card {
+  @apply bg-white border border-brand-green/5 transition-all duration-500 overflow-hidden;
+}
+
+.luxury-card:hover {
+  @apply shadow-2xl -translate-y-2 border-brand-green/20;
+}
+
+.primary-btn {
+  @apply bg-brand-green text-brand-cream px-8 py-4 uppercase tracking-[0.2em] text-xs font-black hover:bg-brand-green/90 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5;
+}
+
+.secondary-btn {
+  @apply border-2 border-brand-green text-brand-green px-8 py-4 uppercase tracking-[0.2em] text-xs font-black hover:bg-brand-green hover:text-brand-cream transition-all duration-300;
+}
+
+.nav-link {
+  @apply relative py-1 transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brand-green transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-green/10 rounded-full hover:bg-brand-green/20 transition-colors;
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
